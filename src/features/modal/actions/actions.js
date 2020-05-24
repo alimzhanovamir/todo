@@ -11,7 +11,7 @@ const closeModal = () => ({
   isOpen: false
 });
 
-export const modal = {
+export {
   OPEN_MODAL,
   CLOSE_MODAL,
   openModal,
