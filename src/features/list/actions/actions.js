@@ -5,7 +5,7 @@ const SORT_LIST = 'SORT_LIST',
       // TRANSFORM_SUMMARY_LIST = 'TRANSFORM_SUMMARY_LIST',
       ADD_TASK = 'ADD_TASK',
       EDIT_TASK = 'EDIT_TASK',
-      SEARCH_TASKS = 'SEARCH_TASKS',
+      SEARCH_TASK = 'SEARCH_TASKS',
       REMOVE_TASK = 'REMOVE_TASK';
 
 const sort = sortType => {
@@ -38,7 +38,7 @@ const editTask = (id, text) => {
 };
 
 const searchTask = taskName => {
-  type: SEARCH_TASKS,
+  type: SEARCH_TASK,
   taskName
 };
 
@@ -54,7 +54,7 @@ export {
   SET_SUMMARY_LIST,
   ADD_TASK,
   EDIT_TASK,
-  SEARCH_TASKS,
+  SEARCH_TASK,
   REMOVE_TASK,
   sort,
   sortByType,
