@@ -1,45 +1,50 @@
-const SORT_LIST = 'SORT_LIST',
-      SORT_BY_TYPE = 'SORT_BY_TYPE',
-      IMPORT_LIST_FROM_LOCALSTORAGE = 'IMPORT_LIST_FROM_LOCALSTORAGE',
+const SET_SORT_LIST = 'SET_SORT_LIST',
+      SET_SORT_BY_TYPE = 'SET_SORT_BY_TYPE',
+      // SET_LIST_FROM_LOCALSTORAGE = 'SET_LIST_FROM_LOCALSTORAGE',
+      // SET_LIST_TO_LOCALSTORAGE = 'SET_LIST_TO_LOCALSTORAGE',
       SET_SUMMARY_LIST = 'SET_SUMMARY_LIST',
-      // TRANSFORM_SUMMARY_LIST = 'TRANSFORM_SUMMARY_LIST',
       ADD_TASK = 'ADD_TASK',
       EDIT_TASK = 'EDIT_TASK',
-      SEARCH_TASK = 'SEARCH_TASKS',
+      SET_SEARCH_VALUE = 'SET_SEARCH_VALUE',
       REMOVE_TASK = 'REMOVE_TASK';
 
-const sort = sortType => {
-  type: SORT_LIST,
+const setSortValue = sortType => {
+  type: SET_SORT_LIST,
   sortType
 };
 
-const sortByType = sortType => {
-  type: SORT_BY_TYPE,
+const setSortByTypeValue = sortType => {
+  type: SET_SORT_BY_TYPE,
   sortType
 };
 
-const importListFromLocalstorage = list => {
-  type: IMPORT_LIST_FROM_LOCALSTORAGE,
-  list
-};
+// const setListFromLocalstorage = list => {
+//   type: SET_LIST_FROM_LOCALSTORAGE,
+//   list
+// };
+
+// const setListToLocalstorage = list => {
+//   type: SET_LIST_TO_LOCALSTORAGE
+// };
 
 const setSummaryList = () => {
   type: SET_SUMMARY_LIST
 };
 
-const addTask = (id, text) => {
+const addTask = name => {
   type: ADD_TASK,
-  text
+  name
 };
 
-const editTask = (id, text) => {
+const editTask = (id, name) => {
   type: EDIT_TASK,
-  text
+  id,
+  name
 };
 
-const searchTask = taskName => {
-  type: SEARCH_TASK,
-  taskName
+const setSearchValue = name => {
+  type: SET_SEARCH_VALUE,
+  name
 };
 
 const removeTask = id => {
@@ -48,20 +53,22 @@ const removeTask = id => {
 };
 
 export {
-  SORT_LIST,
-  SORT_BY_TYPE,
-  IMPORT_LIST_FROM_LOCALSTORAGE,
+  SET_SORT_LIST,
+  SET_SORT_BY_TYPE,
+  // SET_LIST_FROM_LOCALSTORAGE,
+  // SET_LIST_TO_LOCALSTORAGE,
+  SET_SEARCH_VALUE,
   SET_SUMMARY_LIST,
   ADD_TASK,
   EDIT_TASK,
-  SEARCH_TASK,
   REMOVE_TASK,
-  sort,
-  sortByType,
-  importListFromLocalstorage,
+  setSortValue,
+  setSortByTypeValue,
+  // setListFromLocalstorage,
+  // setListToLocalstorage,
+  setSearchValue,
   setSummaryList,
   addTask,
   editTask,
-  searchTask,
   removeTask
 }
