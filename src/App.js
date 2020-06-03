@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
+import { MainPage } from './pages';
 
 function App() {
   return (
-    <h1>ToDo</h1>
+    <MainPage/>
   );
 }
 
