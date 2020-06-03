@@ -44,7 +44,8 @@ export const initialState = {
 
   searchValue: '',
 
-  list: loadFromLocalStorage(),
-  
-  summaryList: loadFromLocalStorage()
+  editMode: false,
+
+  list: []
+  // list: loadFromLocalStorage()
 }
