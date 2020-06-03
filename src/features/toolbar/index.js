@@ -1,1 +1,0 @@
-export { tollbar } from './toolbar';
