@@ -6,6 +6,7 @@ const initialState = {
 
 export const modalReducer = (prevState = initialState, action) => {
   switch (action.type) {
+    
     case OPEN_MODAL:
       return {
         isOpen: true
@@ -17,6 +18,6 @@ export const modalReducer = (prevState = initialState, action) => {
       };
   
     default:
-      prevState;
+      return prevState;
   }
 }
