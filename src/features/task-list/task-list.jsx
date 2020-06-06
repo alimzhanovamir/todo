@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { List } from '@ui/organisms/list';
-import { completeTask, cancelTask, removeTask } from './actions/actions';
+import { completeTask, cancelTask, removeTask, editTask } from './actions/actions';
 
 const sortString = (a,b) => a.localeCompare(b);
 
@@ -9,18 +9,16 @@ export const TaskList = () => {
   const dispatch = useDispatch();
   const taskList = useSelector( ({listReducer: { list, searchValue, sortByTypeValue, sortValue }}) => (
     list
-      .filter( ({ name, complete }) => {
+      .filter( ({ title, complete }) => {
         const validValues = [];
-
+        
         if (searchValue) {
-          const match = name.match(searchValue);
+          const match = title.match(searchValue);
           validValues.push(match ? true : false);
         }
         else {
           validValues.push(true);
         }
-
-        console.log(sortByTypeValue);
         
         switch (sortByTypeValue) {
           case 1:
@@ -36,24 +34,20 @@ export const TaskList = () => {
             break;
         }
 
-        console.log(validValues);
-
         return validValues.every(val => val)
 
       })
       .sort( (currentTask, nextTask) => {
         switch (sortValue) {
           case 0:
-            return currentTask.date - nextTask.date;
+            return sortString(currentTask.title, nextTask.title);
           case 1:
-            return nextTask.date - currentTask.date;
-          case 2:
-            return sortString(currentTask.name, nextTask.name);
-          case 3:
-            return sortString(nextTask.name, currentTask.name);
+            return sortString(nextTask.title, currentTask.title);
           default:
             break;
         }
+
+        return true
       })
   ));
   
@@ -62,7 +56,8 @@ export const TaskList = () => {
       list={taskList} 
       dispatch={dispatch} 
       completeTask={completeTask}
-      cancelTask={cancelTask}
+      cancelTask={cancelTask} 
+      editTask={editTask} 
       removeTask={removeTask}/>
   )
 }

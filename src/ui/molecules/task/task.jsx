@@ -7,19 +7,16 @@ import {
 } from './styles';
 
 
-export const Task = ({ id, name, fulldate, complete, dispatch, completeTask, cancelTask, removeTask }) => {
-  const h = fulldate.getHours();
-  const min = fulldate.getMinutes();
-  const sec = fulldate.getSeconds();
+export const Task = ({ id, title, text, complete, dispatch, completeTask, cancelTask, removeTask }) => {
   
   return (
    <TaskElement>
 
       <TaskElementName complete={complete}>
         <div>
-          { name }
+          { title }
         </div>
-        {h < 10 ? '0'+h : h}:{min < 10 ? '0'+min : min}:{sec < 10 ? '0'+sec : sec}
+        { text }
       </TaskElementName>
 
       <TaskElementControls>
@@ -39,9 +36,9 @@ export const Task = ({ id, name, fulldate, complete, dispatch, completeTask, can
         }
 
         <Button 
-          onClick={ e => alert(e.target.textContent)}
-          aria-label='Отметить как выполненный'
-          title='Отметить как выполненный'
+          onClick={ () => dispatch(openModal()) }
+          aria-label='Edit'
+          title='Edit'
         >&#9998;</Button>
 
         <Button 

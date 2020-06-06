@@ -10,15 +10,11 @@ import {
   REMOVE_TASK
 } from '../actions/actions';
 
-const createNewTask = name => {
-  const date = Date.now();
-  const fulldate = new Date();
-
+const createNewTask = ({title, text}) => {  
   return {
-    id: date,
-    name,
-    date,
-    fulldate,
+    id: Date.now(),
+    title,
+    text,
     complete: false
   }
 }
