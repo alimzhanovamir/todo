@@ -13,8 +13,6 @@ export const TaskElementName = styled.div`
   flex-grow: 1;
   font-size: 16px;
   text-decoration: ${props => {
-    console.log(props);
-    
     return props.complete === true ? 'line-through' : 'none'
   }};
 
