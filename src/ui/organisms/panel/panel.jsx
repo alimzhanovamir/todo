@@ -27,7 +27,7 @@ export const Panel = ({ searchValue, sortValue, sortValues, sortByTypeValue, sor
           label='Sort'
           value={sortValue}
           options={sortValues}
-          onChange={ e => dispatch(setSortValue(e.target.value)) }
+          onChange={ e => dispatch(setSortValue( Number(e.target.value) )) }
         />
       </PanelElementField>
 
@@ -38,7 +38,7 @@ export const Panel = ({ searchValue, sortValue, sortValues, sortByTypeValue, sor
           label='Sort by type'
           value={sortByTypeValue}
           options={sortByTypeValues}
-          onChange={ e => dispatch(setSortByTypeValue(e.target.value)) }/>
+          onChange={ e => dispatch(setSortByTypeValue( Number(e.target.value) )) }/>
       </PanelElementField>
 
       <PanelElementField>
