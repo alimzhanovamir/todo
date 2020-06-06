@@ -18,6 +18,8 @@ export const FormField = (props) => {
                </Select>
       case 'button': 
         return <Button {...props}>{text}</Button>
+      default:
+        return null
     }
   }
 
