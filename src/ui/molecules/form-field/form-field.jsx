@@ -1,9 +1,6 @@
 import React from 'react';
 import { FormFieldElement } from './styles';
-import { Input } from '@ui/atoms/input';
-import { Select } from '@ui/atoms/select';
-import { Label } from '@ui/atoms/label';
-import { Button } from '@ui/atoms/button';
+import { Input, Select, Label, Button } from '@ui';
 
 export const FormField = (props) => {
   const {controlType, label = '', id = '', options = [], text = ''} = props;

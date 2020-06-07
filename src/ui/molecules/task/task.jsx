@@ -1,53 +1,61 @@
 import React from 'react';
-import { Button } from '@ui/atoms/button';
-import { 
+import { Button } from '@ui';
+import {
   TaskElement,
+  TaskElementTop,
+  TaskElementBottom,
+  TaskElementData,
   TaskElementName,
+  TaskElementDesc,
+  TaskElementDate,
   TaskElementControls
 } from './styles';
 
 
-export const Task = ({ id, title, text, complete, dispatch, completeTask, cancelTask, removeTask }) => {
-  
+export const Task = ({ id, title, text, date, complete, openModal, dispatch, completeTask, cancelTask, removeTask }) => {
+
   return (
-   <TaskElement>
+    <TaskElement>
+      <TaskElementTop>
+        <TaskElementData>
+          <TaskElementName complete={complete}>{title}</TaskElementName>
+          <TaskElementDesc complete={complete}>{text}</TaskElementDesc>
+        </TaskElementData>
+        <TaskElementControls>
 
-      <TaskElementName complete={complete}>
-        <div>
-          { title }
-        </div>
-        { text }
-      </TaskElementName>
+          {complete ?
+            <Button
+              onClick={() => dispatch(cancelTask(id))}
+              aria-label='Mark as failed'
+              title='Mark as outstanding'
+            >&#128683;</Button>
+            :
+            <Button
+              onClick={() => dispatch(completeTask(id))}
+              aria-label='Mark as done'
+              title='Mark as done'
+            >✔</Button>
+          }
 
-      <TaskElementControls>
+          <Button
+            onClick={() => {
+              dispatch(openModal(id))
+            }}
+            aria-label='Edit'
+            title='Edit'
+          >&#9998;</Button>
 
-        {complete ?
-          <Button 
-          onClick={ () => dispatch(cancelTask(id)) }
-          aria-label='Отметить как невыполненное'
-          title='Отметить как невыполненное'
-          >&#128683;</Button>
-          :
-          <Button 
-            onClick={ () => dispatch(completeTask(id)) }
-            aria-label='Отметить как выполненный'
-            title='Отметить как выполненный'
-          >✔</Button>
-        }
+          <Button
+            onClick={() => dispatch(removeTask(id))}
+            aria-label='Delete'
+            title='Delete'
+          >❌</Button>
 
-        <Button 
-          onClick={ () => dispatch(openModal()) }
-          aria-label='Edit'
-          title='Edit'
-        >&#9998;</Button>
-
-        <Button 
-          onClick={ () => dispatch(removeTask(id))}
-          aria-label='Удалить'
-          title='Удалить'
-        >❌</Button>
-
-      </TaskElementControls>
-   </TaskElement>
+        </TaskElementControls>
+      </TaskElementTop>
+      <TaskElementBottom>
+        <TaskElementDate>{date}</TaskElementDate>
+      </TaskElementBottom>
+    </TaskElement>
   );
 }

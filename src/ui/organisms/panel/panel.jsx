@@ -1,6 +1,6 @@
 import React from 'react';
 import { PanelElement, PanelElementField, PanelElementSearchField } from './styles';
-import { FormField } from '@ui/molecules/form-field';
+import { FormField } from '@ui';
 import { setSearchValue, setSortValue, setSortByTypeValue } from '@features/task-list';
 import { openModal } from '@features/modal';
 
