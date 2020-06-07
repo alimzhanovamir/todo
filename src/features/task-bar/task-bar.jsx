@@ -2,7 +2,7 @@ import React from 'react';
 import { Panel } from '@ui';
 import { useSelector, useDispatch } from 'react-redux';
 
-export const TaskBar = (props) => {
+export const TaskBar = () => {
   const {
     sortValues, 
     sortValue, 

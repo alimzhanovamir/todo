@@ -12,7 +12,17 @@ import {
 } from './styles';
 
 
-export const Task = ({ id, title, text, date, complete, openModal, dispatch, completeTask, cancelTask, removeTask }) => {
+export const Task = ({ 
+  id, 
+  title, 
+  text, 
+  date, 
+  complete, 
+  openModal, 
+  dispatch, 
+  completeTask, 
+  cancelTask, 
+  removeTask }) => {
 
   return (
     <TaskElement>
