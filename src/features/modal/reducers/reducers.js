@@ -1,7 +1,8 @@
 import { OPEN_MODAL, CLOSE_MODAL } from '../actions/actions';
 
 const initialState = {
-  isOpen: false
+  isOpen: false,
+  edittableTaskId: null
 }
 
 export const modalReducer = (prevState = initialState, action) => {
@@ -9,12 +10,16 @@ export const modalReducer = (prevState = initialState, action) => {
     
     case OPEN_MODAL:
       return {
-        isOpen: true
+        isOpen: true,
+        isEditMode: action.payload ? true : false,
+        id: action.payload ? action.payload : null
       };
 
     case CLOSE_MODAL:
       return {
-        isOpen: false
+        isOpen: false,
+        isEditMode: false,
+        id: null
       };
   
     default:
