@@ -6,7 +6,7 @@ const reducers = combineReducers({listReducer, modalReducer})
 
 export const model = createStore(reducers);
 
-let prevList = model.getState().listReducer.list;
+let prevList = [];
 
 const saveToLocalStorage = () => {
   const list = model.getState().listReducer.list;
