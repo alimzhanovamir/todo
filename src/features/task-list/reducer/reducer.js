@@ -10,15 +10,6 @@ import {
   REMOVE_TASK
 } from '../actions/actions';
 
-const createNewTask = ({title, text}) => {  
-  return {
-    id: Date.now(),
-    title,
-    text,
-    complete: false
-  }
-}
-
 export const listReducer = (prevState = initialState, action) => {
   switch (action.type) {
 
@@ -43,14 +34,14 @@ export const listReducer = (prevState = initialState, action) => {
     case ADD_TASK:
       return {
         ...prevState,
-        list: [...prevState.list, createNewTask(action.payload)]
+        list: [...prevState.list, action.payload]
       };
 
     case EDIT_TASK:
       return {
         ...prevState,
         list: prevState.list.map( task => {
-          if ( task.id === action.id ) task.name = action.payload;
+          if ( task.id === action.payload.id ) return {...task, ...action.payload};
           return task
         })
       };

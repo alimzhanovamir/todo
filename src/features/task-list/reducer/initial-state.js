@@ -7,13 +7,21 @@ const loadFromLocalStorage = () => {
 export const initialState = {
   sortValues: [
     {
-      label: 'A-Z',
+      label: 'New',
       value: 0
     },
     {
-      label: 'Z-A',
+      label: 'Old',
       value: 1
-    }
+    },
+    {
+      label: 'A-Z',
+      value: 2
+    },
+    {
+      label: 'Z-A',
+      value: 3
+    },
   ],
 
   sortValue: 0,
@@ -36,8 +44,6 @@ export const initialState = {
   sortByTypeValue: 0,
 
   searchValue: '',
-
-  editMode: false,
 
   list: loadFromLocalStorage()
 }

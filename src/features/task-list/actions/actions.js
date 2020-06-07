@@ -8,6 +8,28 @@ export const CANCEL_TASK    = 'CANCEL_TASK';
 export const SET_SEARCH_VALUE = 'SET_SEARCH_VALUE';
 export const REMOVE_TASK      = 'REMOVE_TASK';
 
+const createDate = d => {
+  const getСorrectUnit = unit => unit < 10 ? '0'+unit : unit;
+  const day = d.getDate();
+  const m = d.getMonth();
+  const y = d.getFullYear();
+  const h = d.getHours();
+  const min = d.getMinutes();
+
+  return `${getСorrectUnit(day)}/${getСorrectUnit(m)}/${getСorrectUnit(y)} ${getСorrectUnit(h)}:${getСorrectUnit(min)}`
+}
+
+const addTaskCreationData = () => {
+  const date = new Date();
+  const dateForSort = Date.now();
+  return {
+    dateForSort,
+    date: createDate(date),
+    id: dateForSort,
+    complete: false
+  }
+};
+
 export const setSortValue = payload => ({
   type: SET_SORT_LIST,
   payload
@@ -24,21 +46,20 @@ export const setSummaryList = () => ({
 
 export const addTask = payload => ({
   type: ADD_TASK,
-  payload
+  payload: {...payload, ...addTaskCreationData()}
 });
 
-export const editTask = (id, payload) => ({
+export const editTask = payload => ({
   type: EDIT_TASK,
-  id,
   payload
 });
 
-export const completeTask = (payload) => ({
+export const completeTask = payload => ({
   type: COMPLETE_TASK,
   payload
 });
 
-export const cancelTask = (payload) => ({
+export const cancelTask = payload => ({
   type: CANCEL_TASK,
   payload
 });

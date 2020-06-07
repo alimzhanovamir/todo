@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { List } from '@ui/organisms/list';
+import { NoTask, List } from '@ui';
 import { completeTask, cancelTask, removeTask, editTask } from './actions/actions';
+import { openModal } from '@features/modal'
 
 const sortString = (a,b) => a.localeCompare(b);
 
@@ -13,7 +14,7 @@ export const TaskList = () => {
         const validValues = [];
         
         if (searchValue) {
-          const match = title.match(searchValue);
+          const match = title.toLowerCase().match(searchValue);
           validValues.push(match ? true : false);
         }
         else {
@@ -40,8 +41,12 @@ export const TaskList = () => {
       .sort( (currentTask, nextTask) => {
         switch (sortValue) {
           case 0:
-            return sortString(currentTask.title, nextTask.title);
+            return nextTask.dateForSort - currentTask.dateForSort;
           case 1:
+            return currentTask.dateForSort - nextTask.dateForSort;
+          case 2:
+            return sortString(currentTask.title, nextTask.title);
+          case 3:
             return sortString(nextTask.title, currentTask.title);
           default:
             break;
@@ -51,12 +56,17 @@ export const TaskList = () => {
       })
   ));
   
+  if ( taskList.length < 1 ) return (
+    <NoTask>You have no scheduled tasks. Add?</NoTask>
+  );
+
   return (
     <List 
       list={taskList} 
       dispatch={dispatch} 
       completeTask={completeTask}
       cancelTask={cancelTask} 
+      openModal={openModal}
       editTask={editTask} 
       removeTask={removeTask}/>
   )
