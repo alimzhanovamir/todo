@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel } from '@ui/organisms/panel';
+import { Panel } from '@ui';
 import { useSelector, useDispatch } from 'react-redux';
 
 export const TaskBar = (props) => {
