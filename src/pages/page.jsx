@@ -4,7 +4,7 @@ import { TaskBar } from '@features/task-bar';
 import { TaskList } from '@features/task-list';
 import { Modal } from '@features/modal';
 
-export const MainPage = (props) => {
+export const MainPage = () => {
   return (
     <Container>
       <TaskBar/>
