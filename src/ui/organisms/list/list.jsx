@@ -1,12 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Task } from '@ui';
 import { ListElement, ListElementItem } from './styles';
 
-export const List = ({list, ...props}) => (
+export const List = ({list, ...props}) =>  (
   <ListElement>
-    {list.map( ({id, title, text, date, complete}) => {
-      
-      return <ListElementItem key={id}>
+    {list.map( ({id, title, text, date, complete}) => (      
+      <ListElementItem key={id}>
         <Task 
           id={id}  
           title={title} 
@@ -16,6 +16,9 @@ export const List = ({list, ...props}) => (
           {...props}
           />
       </ListElementItem>
-    })}
-  </ListElement>
-);
+    ))}
+  </ListElement>);
+
+List.propTypes = {
+  list: PropTypes.array.isRequired
+}
