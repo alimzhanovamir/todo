@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Input, Textarea } from '@ui';
 import {
   ModalElement,
@@ -55,4 +56,15 @@ export const ModalInner = ({
       </ModalElementInner>
     </ModalElement>
   )
+}
+
+ModalInner.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  addTask: PropTypes.func.isRequired,
+  editTask: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  isEditMode: PropTypes.bool.isRequired,
+  id: PropTypes.number,
+  title: PropTypes.string,
+  text: PropTypes.string
 }
