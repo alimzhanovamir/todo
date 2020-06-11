@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button } from '@ui';
 import {
   TaskElement,
@@ -38,28 +39,28 @@ export const Task = ({
               onClick={() => dispatch(cancelTask(id))}
               aria-label='Mark as failed'
               title='Mark as outstanding'
-            >&#128683;</Button>
+            ><span role="img" aria-label='Mark as failed'>&#128683;</span></Button>
             :
             <Button
               onClick={() => dispatch(completeTask(id))}
               aria-label='Mark as done'
               title='Mark as done'
-            >✔</Button>
+            ><span role="img" aria-label='Mark as done'>✔</span></Button>
           }
 
           <Button
             onClick={() => {
               dispatch(openModal(id))
             }}
-            aria-label='Edit'
-            title='Edit'
-          >&#9998;</Button>
+            aria-label='Edit task'
+            title='Edit task'
+          ><span role="img" aria-label='Edit task'>&#9998;</span></Button>
 
           <Button
             onClick={() => dispatch(removeTask(id))}
-            aria-label='Delete'
-            title='Delete'
-          >❌</Button>
+            aria-label='Remove task'
+            title='Remove task'
+          ><span role="img" aria-label='Remove task'>❌</span></Button>
 
         </TaskElementControls>
       </TaskElementTop>
@@ -68,4 +69,17 @@ export const Task = ({
       </TaskElementBottom>
     </TaskElement>
   );
+}
+
+Task.propTypes = {
+  id: PropTypes.number.isRequired, 
+  title: PropTypes.string.isRequired, 
+  text: PropTypes.string.isRequired, 
+  date: PropTypes.string.isRequired, 
+  complete: PropTypes.bool.isRequired, 
+  openModal: PropTypes.func.isRequired, 
+  dispatch: PropTypes.func.isRequired, 
+  completeTask: PropTypes.func.isRequired, 
+  cancelTask: PropTypes.func.isRequired, 
+  removeTask: PropTypes.func.isRequired
 }
