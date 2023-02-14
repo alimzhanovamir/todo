@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input, Textarea } from '@ui';
+import { Button } from '@ui';
 import {
   ModalElement,
   ModalElementInner,
