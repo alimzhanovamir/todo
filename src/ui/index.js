@@ -8,6 +8,7 @@ export { NoTask } from './atoms/no-task/no-task';
 
 // Molecules
 export { FormField } from './molecules/form-field/form-field';
+export { FormFieldElement } from './molecules/form-field/styles';
 export { Task } from './molecules/task/task';
 
 // Organisms

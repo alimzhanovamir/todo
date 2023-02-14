@@ -6,8 +6,9 @@ import {
   ModalElementHeader,
   ModalElementTitle,
   ModalElementForm,
-  ModalElementFormField,
+  ModalElementFormBottom,
 } from './styles';
+import { FormField } from '@ui';
 
 export const ModalInner = ({
   dispatch, 
@@ -27,11 +28,15 @@ export const ModalInner = ({
     <ModalElement>
       <ModalElementInner>
         <ModalElementHeader>
-          <ModalElementTitle>{isEditMode ? 'Edit' : 'New'} task</ModalElementTitle>
-          <Button onClick={ () => {
-            dispatch(closeModal())
-            setInputValue('')
-          }}>&#10060;</Button>
+          <ModalElementTitle>{isEditMode ? 'Редактирование' : 'Создание новой'} задачи</ModalElementTitle>
+          <Button
+            title='Закрыть'
+            aria-label='Закрыть'
+            onClick={ () => {
+              dispatch(closeModal())
+              setInputValue('')
+            }}
+          >&#10062;</Button>
         </ModalElementHeader>
         <ModalElementForm onSubmit={() => {
           if ( isEditMode ) {
@@ -42,15 +47,22 @@ export const ModalInner = ({
           }
           dispatch(closeModal());
         }}>
-          <ModalElementFormField>
-            <Input value={inputValue} onChange={ e => setInputValue(e.target.value) } autoFocus={true}/>
-          </ModalElementFormField>
-          <ModalElementFormField>
-            <Textarea value={textareaValue} onChange={ e => setTextareaValue(e.target.value) }/>
-          </ModalElementFormField>
-          <ModalElementFormField>
-          <Button disabled={ inputValue ? false : true }>&#9989; { isEditMode ? 'Save' : 'Add'}</Button>
-        </ModalElementFormField>
+          <FormField
+            controlType='input'
+            label='Заголовок'
+            autoFocus={true}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <FormField
+            controlType='text'
+            label='Описание'
+            value={textareaValue}
+            onChange={(e) => setTextareaValue(e.target.value)}
+          />
+          <ModalElementFormBottom>
+            <Button disabled={ inputValue ? false : true }>&#9989; { isEditMode ? 'Сохранить' : 'Добавить'}</Button>
+          </ModalElementFormBottom>
         </ModalElementForm>
       </ModalElementInner>
     </ModalElement>

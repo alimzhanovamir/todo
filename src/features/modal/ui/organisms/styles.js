@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '@ui';
+import { FormFieldElement } from '@ui';
 
 export const ModalElement = styled.div`
   position: fixed;
@@ -30,20 +30,15 @@ export const ModalElementHeader = styled.p`
 `;
 
 export const ModalElementForm = styled.form`
-
+  > ${FormFieldElement} {
+    margin-bottom: 10px;
+  }
 `
 
-export const ModalElementFormField = styled.p`
+export const ModalElementFormBottom = styled.p`
   display: flex;
-  margin: 0 0 15px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  ${Button} {
-    margin-left: auto;
-  }
+  justify-content: flex-end;
+  margin: 0;
 `;
 
 export const ModalElementTitle = styled.span`

@@ -36,14 +36,14 @@ export const Task = ({
           {complete ?
             <Button
               onClick={() => dispatch(cancelTask(id))}
-              aria-label='Mark as failed'
-              title='Mark as outstanding'
+              aria-label='Отметить как активное'
+              title='Отметить как активное'
             >&#128683;</Button>
             :
             <Button
               onClick={() => dispatch(completeTask(id))}
-              aria-label='Mark as done'
-              title='Mark as done'
+              aria-label='Отметить как выполненное'
+              title='Отметить как выполненное'
             >✔</Button>
           }
 
@@ -51,15 +51,15 @@ export const Task = ({
             onClick={() => {
               dispatch(openModal(id))
             }}
-            aria-label='Edit'
-            title='Edit'
+            aria-label='Редактировать'
+            title='Редактировать'
           >&#9998;</Button>
 
           <Button
             onClick={() => dispatch(removeTask(id))}
-            aria-label='Delete'
-            title='Delete'
-          >❌</Button>
+            aria-label='Удалить'
+            title='Удалить'
+          >&#10060;</Button>
 
         </TaskElementControls>
       </TaskElementTop>

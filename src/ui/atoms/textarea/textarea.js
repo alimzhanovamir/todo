@@ -13,6 +13,7 @@ export const Textarea = styled.textarea`
   line-height: 1em;
   outline: none;
   cursor: pointer;
+  resize: none;
 
   transition: box-shadow .3s;
 

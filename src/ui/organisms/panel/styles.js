@@ -4,7 +4,7 @@ export const PanelElement = styled.div`
   position: sticky;
   top: 15px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   background-color: #2f2f2f;
   border-radius: 3px;
   margin-bottom: 10px;

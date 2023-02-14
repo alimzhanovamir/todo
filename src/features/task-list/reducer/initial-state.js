@@ -7,11 +7,11 @@ const loadFromLocalStorage = () => {
 export const initialState = {
   sortValues: [
     {
-      label: 'New',
+      label: 'Новые',
       value: 0
     },
     {
-      label: 'Old',
+      label: 'Старые',
       value: 1
     },
   ],
@@ -20,15 +20,15 @@ export const initialState = {
 
   sortByTypeValues: [
     {
-      label: 'All',
+      label: 'Все',
       value: 0
     },
     {
-      label: 'Active',
+      label: 'Активные',
       value: 1
     },
     {
-      label: 'Completed',
+      label: 'Выполненные',
       value: 2
     }
   ],

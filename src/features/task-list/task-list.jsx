@@ -4,8 +4,6 @@ import { NoTask, List } from '@ui';
 import { completeTask, cancelTask, removeTask, editTask } from './actions/actions';
 import { openModal } from '@features/modal'
 
-const sortString = (a,b) => a.localeCompare(b);
-
 export const TaskList = () => {
   const dispatch = useDispatch();
   const taskList = useSelector( ({listReducer: { list, searchValue, sortByTypeValue, sortValue }}) => (
