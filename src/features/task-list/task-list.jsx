@@ -14,7 +14,7 @@ export const TaskList = () => {
         const validValues = [];
         
         if (searchValue) {
-          const match = title.toLowerCase().match(searchValue);
+          const match = title.toLowerCase().match(searchValue.toLowerCase());
           validValues.push(match ? true : false);
         }
         else {
@@ -44,10 +44,6 @@ export const TaskList = () => {
             return nextTask.dateForSort - currentTask.dateForSort;
           case 1:
             return currentTask.dateForSort - nextTask.dateForSort;
-          case 2:
-            return sortString(currentTask.title, nextTask.title);
-          case 3:
-            return sortString(nextTask.title, currentTask.title);
           default:
             break;
         }

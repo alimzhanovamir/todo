@@ -16,8 +16,8 @@
 #### Components
 - Sort:
   - action: `SORT_LIST`
-  - values: `'a-z'`, `'z-a'`, `'data a-z'`, `'date z-a'`,
-  - default value: `'date a-z'`  
+  - values: `'New'`, `'Old'`
+  - default value: `'New'`  
 
 - Sort by type:
   - action: `SORT_BY_TYPE`
