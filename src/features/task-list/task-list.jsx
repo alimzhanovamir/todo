@@ -51,7 +51,7 @@ export const TaskList = () => {
   ));
   
   if ( taskList.length < 1 ) return (
-    <NoTask>You have no scheduled tasks. Add?</NoTask>
+    <NoTask>У вас нет запланированных задач. Добавим?</NoTask>
   );
 
   return (
